@@ -1,0 +1,155 @@
+[colors]
+foreground = #fff
+background = #aa45354d
+text = ${xrdb:accentText}
+accent0 = ${xrdb:accent0}
+accent1 = ${xrdb:accent1}
+accent2 = ${xrdb:accent2}
+unfocused = ${xrdb:unfocused}
+
+[global/wm]
+margin-bottom = 7
+margin-top = 7
+
+[bar/topleft]
+monitor = DP-0
+foreground = ${colors.foreground}
+background = ${colors.background}
+
+#font-0 = SF Pro Display:style=Regular:size=12;2
+#font-0 = Inter:style=Regular:size=12;2
+font-0 = Oswald:style=Regular:pixelsize=12;2
+font-1 = Material Icons:style=Regular:size=13;5
+font-2 = Font Awesome 5 Free:pixelsize=12;3
+font-3 = Font Awesome 5 Free Solid:pixelsize=12;3
+font-4 = Font Awesome 5 Brands:pixelsize=12;3
+
+height = 30
+
+padding = 3
+module-margin = 2
+
+enable-ipc = true
+
+modules-left = i3
+modules-center = spotify
+modules-right = wlan battery date
+
+tray-position = right
+
+[bar/topright]
+monitor = DP-2.8
+foreground = ${colors.foreground}
+background = ${colors.background}
+
+#font-0 = SF Pro Display:style=Regular:size=12;2
+font-0 = Oswald:style=Regular:pixelsize=12;2
+font-1 = Material Icons:style=Regular:size=13;5
+font-2 = Font Awesome 5 Free:pixelsize=12;3
+font-3 = Font Awesome 5 Free Solid:pixelsize=12;3
+font-4 = Font Awesome 5 Brands:pixelsize=12;3
+
+height = 30
+
+padding = 3
+module-margin = 2
+
+modules-left = i3
+modules-center =
+modules-right = 
+
+# Requires polybar-spotify-module (available in AUR)
+# https://github.com/mihirlad55/polybar-spotify-module
+[module/spotify]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = spotifyctl -q status --format '%artist%: %title%'
+format-prefix =  
+
+[module/battery]
+type = internal/battery
+
+poll-interval = 5
+full-at = 99
+
+battery = BAT0
+adapter = AC
+
+label-charging =  %percentage%%
+label-discharging =  %percentage%%
+label-full =  %percentage%%
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+index-sort = true
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = ${colors.accent0}
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-background = ${colors.unfocused}
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-background = ${colors.accent1}
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d
+time = %r
+label =  %time%   %date%
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+label-connected =  %essid%
+label-disconnected = 
+label-packetloss =  %essid%

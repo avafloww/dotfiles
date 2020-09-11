@@ -1,0 +1,10 @@
+*.accent0Text: #ffccff
+*.accent0: #e386e3
+*.accent1: #d67ed6
+*.accent2: #b85ab8
+*.unfocused: #452e45
+*.background: #45354d
+
+rofi.font: Oswald 12
+rofi.terminal: kitty
+rofi.ssh-command: {terminal} +kitten ssh {host}

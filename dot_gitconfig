@@ -1,0 +1,5 @@
+[user]
+	name = Ava Ryan
+	email = ava@forairan.com
+[core]
+	autocrlf = input
