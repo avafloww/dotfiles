@@ -12,7 +12,9 @@ margin-bottom = 7
 margin-top = 7
 
 [bar/topleft]
+{{- if eq .chezmoi.hostname "hydaelyn" }}
 monitor = DP-0
+{{- end }}
 foreground = ${colors.foreground}
 background = ${colors.background}
 
@@ -33,10 +35,15 @@ enable-ipc = true
 
 modules-left = i3
 modules-center = spotify
+{{- if eq .chezmoi.hostname "zodiark" }}
 modules-right = wlan battery date
+{{- else }}
+modules-right = date
+{{- end }}
 
 tray-position = right
 
+{{- if eq .chezmoi.hostname "hydaelyn" }}
 [bar/topright]
 monitor = DP-2.8
 foreground = ${colors.foreground}
@@ -57,6 +64,7 @@ module-margin = 2
 modules-left = i3
 modules-center =
 modules-right = 
+{{- end }}
 
 # Requires polybar-spotify-module (available in AUR)
 # https://github.com/mihirlad55/polybar-spotify-module
@@ -66,6 +74,7 @@ hook-0 = echo ""
 hook-1 = spotifyctl -q status --format '%artist%: %title%'
 format-prefix =  
 
+{{- if eq .chezmoi.hostname "zodiark" }}
 [module/battery]
 type = internal/battery
 
@@ -78,6 +87,16 @@ adapter = AC
 label-charging =  %percentage%%
 label-discharging =  %percentage%%
 label-full =  %percentage%%
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+label-connected =  %essid%
+label-disconnected = 
+label-packetloss =  %essid%
+{{- end }}
 
 [module/i3]
 type = internal/i3
@@ -144,12 +163,3 @@ type = internal/date
 date = %Y-%m-%d
 time = %r
 label =  %time%   %date%
-
-[module/wlan]
-type = internal/network
-interface = wlp4s0
-interval = 3.0
-
-label-connected =  %essid%
-label-disconnected = 
-label-packetloss =  %essid%
