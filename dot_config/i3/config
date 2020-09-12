@@ -169,6 +169,7 @@ for_window [window_type="menu"] floating enable
 
 for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Gucharmap"] floating enable
 
 # Rules for games
 for_window [class="Lutris"] floating enable

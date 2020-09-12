@@ -34,11 +34,11 @@ module-margin = 2
 enable-ipc = true
 
 modules-left = i3
-modules-center = spotify
+modules-center = spotify previous playpause next
 {{- if eq .chezmoi.hostname "zodiark" }}
-modules-right = wlan battery date
+modules-right = wlan battery audio time date
 {{- else }}
-modules-right = date
+modules-right = audio time date
 {{- end }}
 
 tray-position = right
@@ -66,6 +66,22 @@ modules-center =
 modules-right = 
 {{- end }}
 
+[module/audio]
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  Muted
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+# I'm sure this'll work someday... :)
+click-right = pavucontrol &
+
 # Requires polybar-spotify-module (available in AUR)
 # https://github.com/mihirlad55/polybar-spotify-module
 [module/spotify]
@@ -73,6 +89,28 @@ type = custom/ipc
 hook-0 = echo ""
 hook-1 = spotifyctl -q status --format '%artist%: %title%'
 format-prefix =  
+
+[module/previous]
+type = custom/ipc
+format-font = 2
+hook-0 = echo ""
+hook-1 = echo ""
+click-left = "spotifyctl -q previous"
+
+[module/next]
+type = custom/ipc
+format-font = 2
+hook-0 = echo ""
+hook-1 = echo ""
+click-left = "spotifyctl -q next"
+
+[module/playpause]
+type = custom/ipc
+format-font = 2
+hook-0 = echo ""
+hook-1 = echo ""
+hook-2 = echo ""
+click-left = "spotifyctl -q playpause"
 
 {{- if eq .chezmoi.hostname "zodiark" }}
 [module/battery]
@@ -158,8 +196,12 @@ label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 4
 
+[module/time]
+type = internal/date
+time = %r
+label =  %time%
+
 [module/date]
 type = internal/date
 date = %Y-%m-%d
-time = %r
-label =  %time%   %date%
+label =  %date%
