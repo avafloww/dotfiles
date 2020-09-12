@@ -156,6 +156,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Ctrl+s scratchpad show
+
 # Some windows should always float
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -167,3 +169,8 @@ for_window [window_type="menu"] floating enable
 
 for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
+
+# Rules for games
+for_window [class="Lutris"] floating enable
+for_window [class="ffxiv_dx11.exe"] fullscreen enable
+for_window [class="advanced combat tracker.exe"] floating enable, move scratchpad, scratchpad show
