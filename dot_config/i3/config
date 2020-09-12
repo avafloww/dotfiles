@@ -57,8 +57,8 @@ exec --no-startup-id "nitrogen --restore"
 focus_follows_mouse no
 
 for_window [class=".*"] border pixel 3
-gaps outer 14
-gaps inner 7
+gaps outer 5
+gaps inner 5
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $accent_0_color $accent_0_color $accent_0_color $accent_0_color
