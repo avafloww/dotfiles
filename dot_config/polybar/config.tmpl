@@ -13,7 +13,7 @@ margin-top = 7
 
 [bar/topleft]
 {{- if eq .chezmoi.hostname "hydaelyn" }}
-monitor = DP-0
+monitor = HDMI-0
 {{- end }}
 foreground = ${colors.foreground}
 background = ${colors.background}
@@ -45,7 +45,7 @@ tray-position = right
 
 {{- if eq .chezmoi.hostname "hydaelyn" }}
 [bar/topright]
-monitor = DP-2.8
+monitor = DP-1.8
 foreground = ${colors.foreground}
 background = ${colors.background}
 

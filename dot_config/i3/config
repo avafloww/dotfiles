@@ -1,8 +1,5 @@
 set $mod Mod4
 
-set $mon_left DP-0
-set $mon_right DP-2.8
-
 set_from_resource $accent_0_text_color accent0Text
 set_from_resource $accent_0_color accent0
 set_from_resource $unfocused_color unfocused
@@ -170,6 +167,7 @@ for_window [window_type="menu"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Gucharmap"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
 
 # Rules for games
 for_window [class="Lutris"] floating enable
