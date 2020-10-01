@@ -11,7 +11,7 @@ unfocused = ${xrdb:unfocused}
 margin-bottom = 7
 margin-top = 7
 
-[bar/topleft]
+[bar/topcenter]
 {{- if eq .chezmoi.hostname "hydaelyn" }}
 monitor = HDMI-0
 {{- end }}
@@ -46,6 +46,27 @@ tray-position = right
 {{- if eq .chezmoi.hostname "hydaelyn" }}
 [bar/topright]
 monitor = DP-1.8
+foreground = ${colors.foreground}
+background = ${colors.background}
+
+#font-0 = SF Pro Display:style=Regular:size=12;2
+font-0 = Oswald:style=Regular:pixelsize=12;2
+font-1 = Material Icons:style=Regular:size=13;5
+font-2 = Font Awesome 5 Free:pixelsize=12;3
+font-3 = Font Awesome 5 Free Solid:pixelsize=12;3
+font-4 = Font Awesome 5 Brands:pixelsize=12;3
+
+height = 30
+
+padding = 3
+module-margin = 2
+
+modules-left = i3
+modules-center =
+modules-right = 
+
+[bar/topleft]
+monitor = DVI-I-1
 foreground = ${colors.foreground}
 background = ${colors.background}
 

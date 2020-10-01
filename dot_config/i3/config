@@ -173,3 +173,8 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Lutris"] floating enable
 for_window [class="ffxiv_dx11.exe"] fullscreen enable
 for_window [class="advanced combat tracker.exe"] floating enable, move scratchpad, scratchpad show
+
+# Fixes for IntelliJ (popup not focusing, menus having borders)
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [class="^jetbrains-.+"][title="^win.+$"] focus
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
