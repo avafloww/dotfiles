@@ -64,9 +64,9 @@ client.unfocused        $unfocused_color $unfocused_color $unfocused_color $unfo
 client.urgent           $unfocused_color $unfocused_color $unfocused_color $unfocused_color
 
 # Pulse Audiocontrols
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd dump | grep 'set-default-sink' | cut -d' ' -f2) +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd dump | grep 'set-default-sink' | cut -d' ' -f2) -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd dump | grep 'set-default-sink' | cut -d' ' -f2) toggle # mute sound
 bindsym $mod+Shift+a exec --no-startup-id pavucontrol
 
 # Media player controls
