@@ -1,8 +1,3 @@
-if [ -f "$HOME/.1psess" ]; then
-	. "$HOME/.1psess"
-	echo "Loaded 1Password session token."
-fi
-
 # Env vars
 export "PATH=$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/bin:$PATH"
 export EDITOR=nano
@@ -26,7 +21,7 @@ bindkey -e
 
 # SSH agent
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa.chdev id_rsa.aws
+zstyle :omz:plugins:ssh-agent identities id_ed25519
 
 # Set up Antigen
 source ~/antigen.zsh

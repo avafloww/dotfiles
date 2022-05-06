@@ -1,5 +1,7 @@
 [user]
-	name = Ava Ryan
-	email = ava@forairan.com
+	name = Ava Chaney
+	email = hello@ava.dev
 [core]
 	autocrlf = input
+[init]
+	defaultBranch = main
