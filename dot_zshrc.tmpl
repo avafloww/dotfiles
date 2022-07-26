@@ -54,12 +54,14 @@ antigen bundle git
 antigen bundle command-not-found
 antigen bundle ssh-agent
 antigen bundle zsh-users/zsh-syntax-highlighting
-#antigen theme borekb/agkozak-zsh-theme
 antigen theme romkatv/powerlevel10k
 antigen apply
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# dev
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 # Auto-update dotfiles; keep this at the end of .zshrc
 if [[ $(chezmoi update >/dev/null 2>&1 | grep "Updating " >/dev/null 2>&1) ]]; then

@@ -5,3 +5,8 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+{{- if (index . "gitconfig_include") }}
+[include]
+	path = {{ .gitconfig_include | quote }}
+{{- end }}
+
