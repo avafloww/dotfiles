@@ -11,6 +11,11 @@ if command -v pyenv &>/dev/null; then
   export "PATH=$(pyenv root)/shims:$PATH"
 fi
 
+# thefuck setup
+if command -v thefuck &>/dev/null; then
+  eval $(thefuck --alias)
+fi
+
 # nano gang
 export EDITOR=nano
 
