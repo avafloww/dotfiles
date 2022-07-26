@@ -34,6 +34,7 @@ SAVEHIST=10000
 bindkey -e
 
 # SSH agent
+zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 if [ -f "~/.ssh/id_ed25519" ]; then
   zstyle :omz:plugins:ssh-agent identities id_ed25519
