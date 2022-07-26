@@ -55,3 +55,8 @@ antigen apply
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Auto-update dotfiles; keep this at the end of .zshrc
+if [[ $(chezmoi update >/dev/null 2>&1 | grep "Updating " >/dev/null 2>&1) ]]; then
+  echo -e '\033[1;36m  New dotfiles downloaded. They will be applied on your next shell restart.'
+fi
