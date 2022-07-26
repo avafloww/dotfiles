@@ -14,26 +14,25 @@ fi
 # nano gang
 export EDITOR=nano
 
-# The following lines were added by compinstall
-
+# autocompletion configuration
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' max-errors 1
 zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
-# Lines configured by zsh-newuser-install
+# save a shit ton of history
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -e
-# End of lines configured by zsh-newuser-install
 
 # SSH agent
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_ed25519
+if [ -f "~/.ssh/id_ed25519" ]; then
+  zstyle :omz:plugins:ssh-agent identities id_ed25519
+fi
 
 {{ if not (env "RUBY_ROOT" | empty) }}
 # Ruby setup
