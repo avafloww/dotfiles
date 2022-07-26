@@ -1,6 +1,6 @@
 [user]
 	name = Ava Chaney
-	email = hello@ava.dev
+	email = {{ if (index . "email") }}{{ .email | quote }}{{ else }}"hello@ava.dev"{{- end}}
 [core]
 	autocrlf = input
 [init]
