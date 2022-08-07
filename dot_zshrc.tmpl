@@ -64,6 +64,7 @@ antigen apply
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 # Auto-update dotfiles; keep this at the end of .zshrc
-if [[ $(chezmoi update >/dev/null 2>&1 | grep "Updating " >/dev/null 2>&1) ]]; then
-  echo -e '\033[1;36m  New dotfiles downloaded. They will be applied on your next shell restart.'
-fi
+# disabled for now because it, _rather predictably_, makes shell starts longer (what were you thinking, past me?)
+#if [[ $(chezmoi update >/dev/null 2>&1 | grep "Updating " >/dev/null 2>&1) ]]; then
+#  echo -e '\033[1;36m  New dotfiles downloaded. They will be applied on your next shell restart.'
+#fi
