@@ -13,7 +13,7 @@ xrdb -merge ~/.Xresources
 picom -b
 
 # polkit
-/usr/libexec/polkit-mate-authentication-agent-1
+/usr/libexec/polkit-mate-authentication-agent-1 & 
 
 # load gnome keyring
 dbus-update-activation-environment --all

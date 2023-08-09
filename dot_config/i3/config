@@ -68,9 +68,9 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec spotify_player playback play-pause
+bindsym XF86AudioNext exec spotify_player playback next
+bindsym XF86AudioPrev exec spotify_player playback previous
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -243,3 +243,5 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Gucharmap"] floating enable
 for_window [class="1Password"] floating enable, move position center
+for_window [class="XIVLauncher.Core"] floating enable, move position center
+
