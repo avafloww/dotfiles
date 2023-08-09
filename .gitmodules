@@ -19,3 +19,6 @@
 [submodule "dot_vim/pack/vendor/start/wal.vim"]
 	path = dot_vim/pack/vendor/start/wal.vim
 	url = https://github.com/dylanaraps/wal.vim.git
+[submodule "dot_vim/pack/vendor/start/editorconfig-vim"]
+	path = dot_vim/pack/vendor/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
