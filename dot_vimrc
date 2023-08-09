@@ -27,5 +27,7 @@ set expandtab
 
 " enable line numbering
 set number
-highlight LineNr ctermfg=darkgrey
+
+" use pywal colours
+colorscheme wal
 
