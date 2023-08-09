@@ -5,8 +5,11 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+{{- if eq .chezmoi.os "linux" }}
+[credential]
+    helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+{{- end }}
 {{- if (index . "gitconfig_include") }}
 [include]
 	path = {{ .gitconfig_include | quote }}
 {{- end }}
-

@@ -19,6 +19,8 @@ fi
 # vim gang
 export EDITOR=vim
 alias nano=vim
+alias :q=exit
+alias :q!=exit
 
 # autocompletion configuration
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -64,6 +66,8 @@ antigen apply
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
 # Not supported in the "fish" shell.
-(cat ~/.cache/wal/sequences &)
+[ -f ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

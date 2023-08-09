@@ -1,6 +1,7 @@
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 
+" automatically enable paste mode when pasting in terminal
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 
@@ -11,4 +12,20 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+
+" autodetect indentation
+filetype plugin indent on
+
+" indentation overrides
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+" default indentation
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" enable line numbering
+set number
+highlight LineNr ctermfg=darkgrey
 

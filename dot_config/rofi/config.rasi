@@ -1,3 +1,9 @@
 /* Dark theme. */
 @import "~/.cache/wal/colors-rofi-dark"
 
+configuration {
+    dpi: 144; // 150% scale
+    terminal: "kitty";
+    ssh-command: "{terminal} +kitten ssh {host}";
+}
+
