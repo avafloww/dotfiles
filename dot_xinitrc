@@ -1,0 +1,7 @@
+xrandr --output DP-0 --left-of DP-2 --mode 3840x2160 --rate 144 --output DP-2 --mode 3840x2160 --rate 60
+wal -R -n -t
+nitrogen --restore &
+xrdb -merge ~/.Xresources
+picom -b
+exec dbus-run-session i3
+

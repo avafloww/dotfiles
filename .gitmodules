@@ -10,3 +10,6 @@
 [submodule "dot_vim/pack/vendor/start/sensible"]
 	path = dot_vim/pack/vendor/start/sensible
 	url = https://tpope.io/vim/sensible.git
+[submodule "dot_fontfiles/intel-one-mono"]
+	path = dot_fontfiles/intel-one-mono
+	url = https://github.com/intel/intel-one-mono.git
