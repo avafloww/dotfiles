@@ -1,7 +1,27 @@
+# ensure display configuration is set correctly
 xrandr --output DP-0 --left-of DP-2 --mode 3840x2160 --rate 144 --output DP-2 --mode 3840x2160 --rate 60
+
+# restore wal config without wallpaper or tty, then restore wallpaper
+# this prevents stretching the wallpaper across both displays
 wal -R -n -t
 nitrogen --restore &
+
+# load DPI and other config from Xresources
 xrdb -merge ~/.Xresources
+
+# start picom for compositing
 picom -b
+
+# polkit
+/usr/libexec/polkit-mate-authentication-agent-1
+
+# load gnome keyring
+dbus-update-activation-environment --all
+gnome-keyring-daemon --start --components=secrets
+
+# start spotify_player daemon
+spotify_player -d
+
+# go!
 exec dbus-run-session i3
 
