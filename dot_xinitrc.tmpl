@@ -10,7 +10,13 @@ nitrogen --restore &
 xrdb -merge ~/.Xresources
 
 # start picom for compositing
+{{- if contains "asahi" .chezmoi.kernel.osrelease }}
+# Asahi's GPU drivers don't yet support OpenGL 3.3, so we need to
+# run picom with `picom --legacy-backends` on my MacBook.
+picom -b --legacy-backends
+{{- else }}
 picom -b
+{{- end }}
 
 # polkit
 /usr/libexec/polkit-mate-authentication-agent-1 & 

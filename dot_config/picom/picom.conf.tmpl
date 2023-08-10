@@ -1,0 +1,35 @@
+backend = "glx";
+
+{{- if contains "asahi" .chezmoi.kernel.osrelease }}
+# Asahi's GPU drivers don't yet support OpenGL 3.3, so we need to
+# use picom with `picom --legacy-backends` and change how we blur
+vsync = true;
+blur-method = "kernel";
+blur-background = true;
+blur-kern = "15,15,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,";
+{{- else }}
+vsync = false;
+blur-method = "dual_kawase";
+blur-background = true;
+blur-size = 5;
+blur-strength = 5;
+{{- end }}
+
+inactive-opacity = 0.85;
+
+opacity-rule = [
+    "90:class_g = 'kitty' && focused",
+    "75:class_g = 'kitty' && !focused"
+];
+
+blur-background-exclude = [
+    "class_g = 'slop'"
+];
+
+shadow = true;
+
+corner-radius = 10;
+rounded-corners-exclude = [
+    "class_g = 'i3bar'"
+];
+
