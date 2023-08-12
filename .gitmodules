@@ -22,3 +22,6 @@
 [submodule "dot_vim/pack/vendor/start/copilot.vim"]
 	path = dot_vim/pack/vendor/start/copilot.vim
 	url = https://github.com/github/copilot.vim.git
+[submodule "dot_vim/pack/vendor/start/vim-airline"]
+	path = dot_vim/pack/vendor/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline

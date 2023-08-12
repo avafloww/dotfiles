@@ -28,3 +28,6 @@ set number
 " use pywal colours
 colorscheme wal
 
+" enable airline with powerline fonts
+autocmd VimEnter * AirlineTheme dark
+let g:airline_powerline_fonts = 1
