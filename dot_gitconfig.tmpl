@@ -9,6 +9,10 @@
 [credential]
     helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 {{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+[credential]
+    helper = osxkeychain
+{{- end }}
 {{- if (index . "gitconfig_include") }}
 [include]
 	path = {{ .gitconfig_include | quote }}

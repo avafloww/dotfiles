@@ -53,6 +53,7 @@ fi
 source ~/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
+antigen bundle gitignore
 antigen bundle command-not-found
 antigen bundle ssh-agent
 antigen bundle zsh-users/zsh-syntax-highlighting

@@ -1,6 +1,6 @@
 backend = "glx";
 
-{{- if contains "asahi" .chezmoi.kernel.osrelease }}
+{{- if and (eq .chezmoi.os "linux") (contains "asahi" .chezmoi.kernel.osrelease) }}
 # Asahi's GPU drivers don't yet support OpenGL 3.3, so we need to
 # use picom with `picom --legacy-backends` and change how we blur
 vsync = true;
