@@ -40,3 +40,6 @@
 [submodule "dot_vim/pack/vendor/start/fern-renderer-devicons.vim"]
 	path = dot_vim/pack/vendor/start/fern-renderer-devicons.vim
 	url = https://github.com/lambdalisue/fern-renderer-devicons.vim.git
+[submodule "dot_vim/pack/vendor/start/vim-floaterm"]
+	path = dot_vim/pack/vendor/start/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm.git

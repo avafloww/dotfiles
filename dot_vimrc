@@ -6,6 +6,14 @@ let mapleader = " "
 nnoremap <silent> <leader>qq :qa<CR>
 nnoremap <silent> <leader>wq :wq<CR>
 
+" Quake mode
+nnoremap <silent> <leader>` :FloatermToggle quake<CR>
+tnoremap <silent> <esc><esc> <C-\><C-n>
+tnoremap <silent> <esc>` <C-\><C-n>:FloatermToggle quake<CR>
+" don't whine on exit if the quake terminal is "open", just kill it
+" this allows for still warning if attempting to exit with other terminals open
+autocmd ExitPre * :FloatermKill quake<CR>
+
 " (e)xtend a line
 nnoremap <silent> <leader>e $i<right><space><esc>
 
@@ -38,7 +46,7 @@ nnoremap <Esc> <Plug>(clever-f-reset)
 let g:clever_f_fix_key_direction = 1
 
 " Copilot
-nnoremap <silent> <leader>` <Plug>(copilot-suggest)
+nnoremap <silent> <leader><C-tab> <Plug>(copilot-suggest)
 nnoremap <silent> <leader><tab> <Plug>(copilot-dismiss)
 
 " easy vimrc edit/reloading
