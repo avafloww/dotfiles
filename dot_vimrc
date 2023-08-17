@@ -22,9 +22,12 @@ nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
 
 " lookups
-nnoremap <silent> <leader>p :Files<CR>
+let g:fzf_buffers_jump = 1
+nnoremap <silent> <leader>h :History:<CR>
+nnoremap <silent> <leader>P :call fzf#vim#files('.', {'source': 'rg --files --hidden --glob "!.git/*" --glob "!.cache/*"'})<CR>
+nnoremap <silent> <leader>p :call fzf#vim#files('.', {'source': 'rg --files'})<CR>
 nnoremap <silent> <leader><space> :Buffers<CR>
-nnoremap <silent> <leader>f :Rg<CR>
+nnoremap <silent> <leader>ft :Rg<CR>
 
 " fern drawer binding
 nnoremap <silent> <leader>tt :Fern . -reveal=% -drawer -toggle<CR>
@@ -112,3 +115,18 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" apply quickfix
+nmap <silent> <leader>. <Plug>(coc-fix-current)
+
+" apply code action
+nmap <silent> <leader>ca <Plug>(coc-codeaction-cursor)
+nmap <silent> <leader>cs <Plug>(coc-codeaction-selected)
+xmap <silent> <leader>cs <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>cl <Plug>(coc-codeaction-line)
+
+" format code
+nmap <silent> <leader>fs <Plug>(coc-format-selected)
+xmap <silent> <leader>fs <Plug>(coc-format-selected)
+nmap <silent> <leader>fb <Plug>(coc-format)
+
