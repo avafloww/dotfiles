@@ -4,7 +4,7 @@ set showcmd
 let mapleader = " "
 
 nnoremap <silent> <leader>qq :qa<CR>
-nnoremap <silent> <leader>wq :wq<CR>
+nnoremap <silent> <leader>wq :wqa<CR>
 
 " Quake mode
 nnoremap <silent> <leader>` :FloatermToggle quake<CR>
@@ -14,8 +14,8 @@ tnoremap <silent> <esc>` <C-\><C-n>:FloatermToggle quake<CR>
 " this allows for still warning if attempting to exit with other terminals open
 autocmd ExitPre * :FloatermKill quake<CR>
 
-" (e)xtend a line
-nnoremap <silent> <leader>e $i<right><space><esc>
+" move to the end of a line and insert
+nnoremap <silent> <leader>i $i<right>
 
 " ADHD making me want to save all the time
 nnoremap <C-s> :w<CR>
@@ -48,9 +48,14 @@ map <C-L> <C-w>L
 nnoremap <Esc> <Plug>(clever-f-reset)
 let g:clever_f_fix_key_direction = 1
 
-" Copilot
+" Copilot and code completion
+let g:copilot_no_tab_map = v:true
 nnoremap <silent> <leader><C-tab> <Plug>(copilot-suggest)
 nnoremap <silent> <leader><tab> <Plug>(copilot-dismiss)
+" on tab, prefer coc completions (if selected), otherwise use
+" copilot#Accept() to insert whatever copilot says, otherwise
+" just insert a tab keypress (whatever we have that equivalent to)
+inoremap <silent><expr> <tab> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : copilot#Accept("<tab>")
 
 " easy vimrc edit/reloading
 nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
@@ -120,10 +125,8 @@ endfunction
 nmap <silent> <leader>. <Plug>(coc-fix-current)
 
 " apply code action
-nmap <silent> <leader>ca <Plug>(coc-codeaction-cursor)
-nmap <silent> <leader>cs <Plug>(coc-codeaction-selected)
-xmap <silent> <leader>cs <Plug>(coc-codeaction-selected)
-nmap <silent> <leader>cl <Plug>(coc-codeaction-line)
+nmap <silent> <leader>, <Plug>(coc-codeaction-cursor)
+xmap <silent> <leader>, <Plug>(coc-codeaction-selected)
 
 " format code
 nmap <silent> <leader>fs <Plug>(coc-format-selected)

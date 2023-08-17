@@ -1,0 +1,12 @@
+{
+    "coc.preferences.formatOnType": true,
+    "coc.preferences.extensionUpdateCheck": "never",
+    "coc.preferences.useQuickfixForLocations": true,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.errorSign": "",
+    "diagnostic.warningSign": "",
+    "diagnostic.hintSign": "",
+    "rust-analyzer.rustc.source": "discover",
+    "rust-analyzer.completion.autoself.enable": true,
+    "rust-analyzer.completion.autoimport.enable": true
+}
