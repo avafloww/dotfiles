@@ -19,7 +19,7 @@ nnoremap <silent> <leader>i $i<right>
 
 " ADHD making me want to save all the time
 nnoremap <C-s> :w<CR>
-inoremap <C-s> <Esc>:w<CR>i
+inoremap <C-s> <Esc>:w<CR>
 
 " lookups
 let g:fzf_buffers_jump = 1
@@ -28,6 +28,7 @@ nnoremap <silent> <leader>P :call fzf#vim#files('.', {'source': 'rg --files --hi
 nnoremap <silent> <leader>p :call fzf#vim#files('.', {'source': 'rg --files'})<CR>
 nnoremap <silent> <leader><space> :Buffers<CR>
 nnoremap <silent> <leader>ft :Rg<CR>
+nnoremap <silent> <leader>n :enew<CR>
 
 " fern drawer binding
 nnoremap <silent> <leader>tt :Fern . -reveal=% -drawer -toggle<CR>
@@ -39,10 +40,10 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " window movement
-map <C-H> <C-w>H
-map <C-J> <C-w>J
-map <C-K> <C-w>K
-map <C-L> <C-w>L
+map <C-S-h> <C-w>H
+map <C-S-j> <C-w>J
+map <C-S-k> <C-w>K
+map <C-S-l> <C-w>L
 
 " make fFtT work as my brain expects
 nnoremap <Esc> <Plug>(clever-f-reset)
