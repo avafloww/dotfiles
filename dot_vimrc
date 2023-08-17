@@ -1,5 +1,49 @@
-nnoremap <silent> <C-f> :Files<CR>
-nnoremap <silent> <Leader>f :Rg<CR>
+set showcmd
+
+" use space as leader
+let mapleader = " "
+
+nnoremap <silent> <leader>qq :qa<CR>
+nnoremap <silent> <leader>wq :wq<CR>
+
+" (e)xtend a line
+nnoremap <silent> <leader>e $i<right><space><esc>
+
+" ADHD making me want to save all the time
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>i
+
+" lookups
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader><space> :Buffers<CR>
+nnoremap <silent> <leader>f :Rg<CR>
+
+" fern drawer binding
+nnoremap <silent> <leader>tt :Fern . -reveal=% -drawer -toggle<CR>
+
+" window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" window movement
+map <C-H> <C-w>H
+map <C-J> <C-w>J
+map <C-K> <C-w>K
+map <C-L> <C-w>L
+
+" make fFtT work as my brain expects
+nnoremap <Esc> <Plug>(clever-f-reset)
+let g:clever_f_fix_key_direction = 1
+
+" Copilot
+nnoremap <silent> <leader>` <Plug>(copilot-suggest)
+nnoremap <silent> <leader><tab> <Plug>(copilot-dismiss)
+
+" easy vimrc edit/reloading
+nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
+nnoremap <silent> <leader>vr :so $MYVIMRC<CR>
 
 " automatically enable paste mode when pasting in terminal
 let &t_SI .= "\<Esc>[?2004h"
@@ -28,6 +72,35 @@ set number
 " use pywal colours
 colorscheme wal
 
+" enable fern icons
+let g:fern#renderer = "devicons"
+
 " enable airline with powerline fonts
 autocmd VimEnter * AirlineTheme dark
 let g:airline_powerline_fonts = 1
+
+" settings for code completion via coc
+set encoding=utf-8
+set updatetime=200
+set signcolumn=yes
+
+" gr - get cross-references
+nmap <silent> gr <Plug>(coc-references)
+
+" gt & gy - go to definition and type definition, respectively
+nmap <silent> gt <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+
+" gi - go to implementation
+nmap <silent> gi <Plug>(coc-implementation)
+
+" gh - get help for symbol under cursor
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction

@@ -4,9 +4,6 @@
 [submodule "dot_vim/pack/vendor/start/fzf"]
 	path = dot_vim/pack/vendor/start/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "dot_vim/pack/vendor/start/nerdtree"]
-	path = dot_vim/pack/vendor/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
 [submodule "dot_vim/pack/vendor/start/sensible"]
 	path = dot_vim/pack/vendor/start/sensible
 	url = https://tpope.io/vim/sensible.git
@@ -25,3 +22,21 @@
 [submodule "dot_vim/pack/vendor/start/vim-airline"]
 	path = dot_vim/pack/vendor/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "dot_vim/pack/vendor/start/clever-f.vim"]
+	path = dot_vim/pack/vendor/start/clever-f.vim
+	url = https://github.com/rhysd/clever-f.vim
+[submodule "dot_vim/pack/vendor/start/vim-devicons"]
+	path = dot_vim/pack/vendor/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "dot_vim/pack/vendor/start/fern.vim"]
+	path = dot_vim/pack/vendor/start/fern.vim
+	url = https://github.com/lambdalisue/fern.vim.git
+[submodule "dot_vim/pack/vendor/start/fern-git-status.vim"]
+	path = dot_vim/pack/vendor/start/fern-git-status.vim
+	url = https://github.com/lambdalisue/fern-git-status.vim.git
+[submodule "dot_vim/pack/vendor/start/fern-hijack.vim"]
+	path = dot_vim/pack/vendor/start/fern-hijack.vim
+	url = https://github.com/lambdalisue/fern-hijack.vim.git
+[submodule "dot_vim/pack/vendor/start/fern-renderer-devicons.vim"]
+	path = dot_vim/pack/vendor/start/fern-renderer-devicons.vim
+	url = https://github.com/lambdalisue/fern-renderer-devicons.vim.git
