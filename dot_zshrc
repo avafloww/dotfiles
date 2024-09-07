@@ -18,9 +18,7 @@ if command -v thefuck &>/dev/null; then
   eval $(thefuck --alias)
 fi
 
-# vim gang
-export EDITOR=vim
-alias nano=vim
+export EDITOR=nano
 alias :q=exit
 alias :q!=exit
 
@@ -38,13 +36,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 bindkey -e
 
-# SSH agent
-zstyle :omz:plugins:ssh-agent quiet yes
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-if [ -f "~/.ssh/id_ed25519" ]; then
-  zstyle :omz:plugins:ssh-agent identities id_ed25519
-fi
-
 # make fzf use ripgrep
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden'
@@ -57,20 +48,12 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle gitignore
 antigen bundle command-not-found
-antigen bundle ssh-agent
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme romkatv/powerlevel10k
 antigen apply
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-# Not supported in the "fish" shell.
-[ -f ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
-
+[ ! -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/export-esp.sh ] && source ~/export-esp.sh
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
